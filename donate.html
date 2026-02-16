@@ -18,13 +18,45 @@
         <span>Opposition International</span>
       </a>
       <div class="nav-links" id="navLinks">
-        <a href="index.html" class="nav-link">Home</a>
+        <div class="nav-dropdown">
+          <a href="index.html" class="nav-link">Home</a>
+          <div class="dropdown-menu">
+            <a href="index.html"><iconify-icon icon="mdi:home"></iconify-icon> Default</a>
+            <a href="index-slider.html"><iconify-icon icon="mdi:image-multiple"></iconify-icon> Slider</a>
+            <a href="index-video.html"><iconify-icon icon="mdi:play-circle"></iconify-icon> Video</a>
+          </div>
+        </div>
         <a href="about.html" class="nav-link">Who We Are</a>
-        <a href="projects.html" class="nav-link">Programs</a>
-        <a href="events.html" class="nav-link">Events</a>
-        <a href="blog.html" class="nav-link">Publications</a>
-        <a href="team.html" class="nav-link">Team</a>
+        <div class="nav-dropdown">
+          <a href="projects.html" class="nav-link">Programs</a>
+          <div class="dropdown-menu">
+            <a href="projects.html"><iconify-icon icon="mdi:view-grid"></iconify-icon> All Programs</a>
+            <a href="project-single.html"><iconify-icon icon="mdi:file-document"></iconify-icon> Program Detail</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="events.html" class="nav-link">Events</a>
+          <div class="dropdown-menu">
+            <a href="events.html"><iconify-icon icon="mdi:calendar-multiple"></iconify-icon> All Events</a>
+            <a href="event-single.html"><iconify-icon icon="mdi:calendar-star"></iconify-icon> Event Detail</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="blog.html" class="nav-link">Publications</a>
+          <div class="dropdown-menu">
+            <a href="blog.html"><iconify-icon icon="mdi:newspaper-variant-multiple"></iconify-icon> All Publications</a>
+            <a href="blog-single.html"><iconify-icon icon="mdi:file-document-edit"></iconify-icon> Article Detail</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="team.html" class="nav-link">Team</a>
+          <div class="dropdown-menu">
+            <a href="team.html"><iconify-icon icon="mdi:account-group"></iconify-icon> All Members</a>
+            <a href="team-single.html"><iconify-icon icon="mdi:account-box"></iconify-icon> Member Profile</a>
+          </div>
+        </div>
         <a href="contact.html" class="nav-link">Contact</a>
+        <a href="donate.html" class="nav-link active" style="display:none;">Donate</a>
       </div>
       <div class="nav-cta">
         <a href="donate.html" class="btn btn-primary">Support Us</a>

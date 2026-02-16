@@ -42,7 +42,19 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
+    // Close mobile nav when clicking non-dropdown links
     navLinks.querySelectorAll('.nav-link').forEach(link => {
+      if (!link.closest('.nav-dropdown')) {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      }
+    });
+
+    // Close mobile nav when clicking dropdown child links
+    navLinks.querySelectorAll('.dropdown-menu a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('open');
         navToggle.setAttribute('aria-expanded', 'false');
@@ -58,6 +70,35 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+
+  // ═══════════════════ DROPDOWN MENUS ═══════════════════
+  const isMobile = () => window.innerWidth <= 820;
+
+  document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+    const parentLink = dropdown.querySelector('.nav-link');
+
+    if (parentLink) {
+      parentLink.addEventListener('click', (e) => {
+        if (isMobile()) {
+          e.preventDefault();
+          // Close other open dropdowns
+          document.querySelectorAll('.nav-dropdown.open').forEach(other => {
+            if (other !== dropdown) other.classList.remove('open');
+          });
+          dropdown.classList.toggle('open');
+        }
+      });
+    }
+  });
+
+  // Close dropdowns when clicking outside (desktop)
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-dropdown')) {
+      document.querySelectorAll('.nav-dropdown.open').forEach(d => {
+        d.classList.remove('open');
+      });
+    }
+  });
 
   // ═══════════════════ SMOOTH SCROLL ═══════════════════
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
